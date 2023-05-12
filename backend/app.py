@@ -1,13 +1,27 @@
 #!/usr/bin/python3
 
-from flask import Flask
+from flask import Flask, request
+
+from transformers import pipeline
 
 app = Flask(__name__)
 
 
-@app.route("/learn")
+classifier = pipeline("zero-shot-classification",
+                      model="facebook/bart-large-mnli")
+
+candidate_labels = ['crime', 'entertainment', 'politics', 'science']
+
+
+@app.route("/categorize", methods=["POST"])
 def receive_mail():
-    return 'Lies doch selbst deine blöden Mails!'
+    return categorize(request.get_data())
+
+
+def categorize(sequence_to_classify):
+    sequence_to_classify = "one day I will see the world"
+
+    classifier(sequence_to_classify, candidate_labels)
 
 
 if __name__ == '__main__':

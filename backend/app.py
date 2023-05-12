@@ -1,10 +1,12 @@
 #!/usr/bin/python3
 
 from flask import Flask, request
+from flask_cors import CORS
 
 from transformers import pipeline
 
 app = Flask(__name__)
+CORS(app)
 
 
 classifier = pipeline("zero-shot-classification",
@@ -15,7 +17,7 @@ candidate_labels = ['crime', 'entertainment', 'politics', 'science']
 
 @app.route("/categorize", methods=["POST"])
 def receive_mail():
-    return categorize(request.get_json())
+    return categorize(request.get_data())
 
 
 def categorize(sequence_to_classify):

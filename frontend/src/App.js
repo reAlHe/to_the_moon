@@ -6,7 +6,7 @@ function App() {
     <div className="container mx-auto">
       <header className="header">
         <h1 className="text-1xl font-bold">To the Moon</h1>
-        <img src="/images/moon.png" alt="Logo" />
+        <img src="/images/logo.jfif" alt="Logo" />
       </header>
       <EmailSection />
     </div>

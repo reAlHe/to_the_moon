@@ -15,13 +15,11 @@ candidate_labels = ['crime', 'entertainment', 'politics', 'science']
 
 @app.route("/categorize", methods=["POST"])
 def receive_mail():
-    return categorize(request.get_data())
+    return categorize(request.get_json())
 
 
 def categorize(sequence_to_classify):
-    sequence_to_classify = "one day I will see the world"
-
-    classifier(sequence_to_classify, candidate_labels)
+    return classifier(sequence_to_classify, candidate_labels)
 
 
 if __name__ == '__main__':

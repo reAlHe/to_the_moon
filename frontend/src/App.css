@@ -1,0 +1,23 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header img {
+  height: 150px;
+}
+.header h1 {
+  font-size: 40px;
+  line-height: 120%;
+}
+
+.btn {
+  padding: 10px;
+  border: 1px solid black;
+  max-width: 100px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
